@@ -1,0 +1,324 @@
+# =============================================================================
+# Brain Tumor MRI Classification Project
+# .gitignore
+#
+# Tracks:
+#   - Python source code
+#   - GUI source and requirements
+#   - fixed train/validation split indices
+#   - compact JSON/CSV experimental results
+#   - duplicate/leakage audit summaries
+#   - report/documentation files
+#
+# Ignores:
+#   - raw MRI dataset
+#   - virtual environments and caches
+#   - trained model binaries
+#   - extracted feature arrays / PCA arrays
+#   - generated heatmap images and temporary outputs
+#   - credentials and machine-specific files
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# Python virtual environments
+# -----------------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+
+# -----------------------------------------------------------------------------
+# Python caches / compiled files
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+.pytest_cache/
+.mypy_cache/
+.pyright/
+.pyre/
+.ruff_cache/
+.hypothesis/
+.tox/
+.nox/
+
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+
+# -----------------------------------------------------------------------------
+# Python packaging / build outputs
+# -----------------------------------------------------------------------------
+build/
+dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+
+# -----------------------------------------------------------------------------
+# Jupyter / IPython
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints/
+.profile_default/
+ipython_config.py
+
+
+# -----------------------------------------------------------------------------
+# IDE / editor files
+# -----------------------------------------------------------------------------
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+
+# -----------------------------------------------------------------------------
+# OS-generated files
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*Zone.Identifier
+
+
+# -----------------------------------------------------------------------------
+# Secrets / credentials / local configuration
+# -----------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+.streamlit/secrets.toml
+
+kaggle.json
+**/kaggle.json
+
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+
+# -----------------------------------------------------------------------------
+# Dataset
+#
+# The downloaded MRI dataset is large and should NOT be committed to Git.
+# Keep data/splits/ because the fixed train/validation indices are part of the
+# reproducibility record.
+# -----------------------------------------------------------------------------
+data/brain_tumor_mri/
+data/raw/
+data/downloads/
+data/external/
+data/interim/
+data/processed/
+
+# Common downloaded archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+
+# -----------------------------------------------------------------------------
+# IMPORTANT: preserve the fixed split files
+# -----------------------------------------------------------------------------
+!data/
+!data/splits/
+!data/splits/train_indices.npy
+!data/splits/val_indices.npy
+
+
+# -----------------------------------------------------------------------------
+# Standardized experiment artifacts
+#
+# Keep:
+#   experiments/<backbone>/results/*.json
+#
+# Ignore heavy/generated:
+#   checkpoints, SVMs, scaler/PCA binaries, raw features, PCA feature arrays
+# -----------------------------------------------------------------------------
+experiments/*/features/
+experiments/*/models/
+experiments/*/pca/
+
+
+# -----------------------------------------------------------------------------
+# Legacy root-level model / feature artifacts
+# -----------------------------------------------------------------------------
+features/
+pca_features/
+
+models/*.pth
+models/*.pt
+models/*.ckpt
+models/*.joblib
+models/*.pkl
+models/*.pickle
+
+
+# -----------------------------------------------------------------------------
+# Generic ML checkpoint / serialized-model artifacts
+#
+# These patterns catch accidental model dumps outside the standard folders.
+# If you intentionally want these in Git, use Git LFS instead.
+# -----------------------------------------------------------------------------
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.safetensors
+
+# Do NOT globally ignore *.joblib / *.pkl because small non-model objects may
+# occasionally be useful. Standard model directories above are already ignored.
+
+
+# -----------------------------------------------------------------------------
+# Generated Grad-CAM / explainability images
+#
+# Keep the evaluation CSVs and protocol documentation.
+# Ignore generated image outputs.
+# -----------------------------------------------------------------------------
+gradcam_evaluation/**/*.png
+gradcam_evaluation/**/*.jpg
+gradcam_evaluation/**/*.jpeg
+gradcam_evaluation/**/*.webp
+gradcam_evaluation/**/*.tif
+gradcam_evaluation/**/*.tiff
+
+occlusion_evaluation/**/*.png
+occlusion_evaluation/**/*.jpg
+occlusion_evaluation/**/*.jpeg
+occlusion_evaluation/**/*.webp
+occlusion_evaluation/**/*.tif
+occlusion_evaluation/**/*.tiff
+
+
+# -----------------------------------------------------------------------------
+# Duplicate/leakage audit temporary caches
+#
+# Keep final CSV/JSON/Markdown audit reports.
+# Ignore only regenerated caches / review-sheet images.
+# -----------------------------------------------------------------------------
+final_project_docs/duplicate_leakage_audit/cache/
+final_project_docs/duplicate_leakage_audit/hash_cache/
+final_project_docs/duplicate_leakage_audit/*.npz
+final_project_docs/duplicate_leakage_audit/review_images/
+final_project_docs/duplicate_leakage_audit/review_sheets/
+
+# Keep leakage-corrected CSV/JSON outputs.
+# final_project_docs/leakage_corrected_evaluation/ is intentionally tracked.
+
+
+# -----------------------------------------------------------------------------
+# GUI / Streamlit runtime files
+# -----------------------------------------------------------------------------
+.streamlit/cache/
+.streamlit/logs/
+
+
+# -----------------------------------------------------------------------------
+# Training / experiment logging frameworks
+# -----------------------------------------------------------------------------
+runs/
+wandb/
+mlruns/
+lightning_logs/
+tensorboard/
+logs/
+*.log
+
+
+# -----------------------------------------------------------------------------
+# Temporary / scratch files
+# -----------------------------------------------------------------------------
+tmp/
+temp/
+.cache/
+cache/
+*.tmp
+*.temp
+*.bak
+*.orig
+
+
+# -----------------------------------------------------------------------------
+# Profiling / debug dumps
+# -----------------------------------------------------------------------------
+*.prof
+*.trace
+*.dump
+core
+core.*
+
+
+# -----------------------------------------------------------------------------
+# Local generated screenshots / ad-hoc exports
+#
+# Uncomment these only if your project has dedicated folders for disposable
+# screenshots. Final report figures should remain tracked.
+# -----------------------------------------------------------------------------
+# screenshots/tmp/
+# exports/tmp/
+
+
+# =============================================================================
+# DO NOT IGNORE THESE IMPORTANT FINAL-PROJECT FILE TYPES
+#
+# Intentionally tracked:
+#   *.py
+#   *.md
+#   *.txt
+#   *.json
+#   *.csv
+#   requirements*.txt
+#   data/splits/train_indices.npy
+#   data/splits/val_indices.npy
+#   final_project_docs/
+#   experiments/*/results/
+#
+# Large trained artifacts are intentionally excluded from normal Git.
+# Use Git LFS or an external release/archive if you need to distribute them.
+# =============================================================================
