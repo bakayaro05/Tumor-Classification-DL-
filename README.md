@@ -13,6 +13,18 @@ The work began as an implementation of the hybrid **CNN + LSTM + SVM** framework
 
 **Available model releases:** [`models-v1.0` — all 15 frozen inference pipelines](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) · [`research-checkpoints-v1.0` — 71 additional historical neural checkpoints](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/research-checkpoints-v1.0) · [Model download, restoration and 75-hash verification guide](docs/MODEL_WEIGHTS.md) · [Full reproduction guide](docs/REPRODUCE.md). These releases are **separate from Git-tracked files**.
 
+## Start here: choose what you want to do
+
+| Your goal | Go directly to |
+|---|---|
+| **Understand the project and its findings** | [Architecture](#the-complete-model), [research results](#results-and-how-to-interpret-them), and [full revised report](docs/RESEARCH_REPORT_GITHUB_EDITION.pdf) |
+| **Run the final seven-tab Streamlit GUI** | [GUI instructions](#running-the-final-application), [15 complete model bundles](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0), and [model restoration and checksums](docs/MODEL_WEIGHTS.md) |
+| **Reproduce training or evaluation** | [Step-by-step reproduction guide](docs/REPRODUCE.md), [environment requirements](requirements-reproduce.txt), and [Nickparvar data source](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset) |
+| **Find code, folders, and saved experiment outputs** | [Directory-by-directory map](#repository-map-where-to-find-everything) and [detailed script/artifact reference](docs/REPOSITORY_DOCUMENTATION.md) |
+| **Audit leakage, external validation, and explainability** | [Linked evidence files](#key-evidence-files-directly-linked), [research limitations](#limitations-that-should-travel-with-every-result), and [dataset provenance](docs/DATASETS_AND_REFERENCES.md) |
+
+**Current versus historical:** Use root [`app.py`](app.py) for the final application and [`phase2/`](phase2/) for canonical Phase 2 results. [`README_GUI.md`](README_GUI.md), [`verify_gui_setup.py`](verify_gui_setup.py), and the older application snapshot are retained for historical reference, not the recommended starting point. The original development MRI images are downloaded separately from Kaggle; neural weights are distributed separately through GitHub Releases.
+
 ## At a glance
 
 | Item | Final project record |
@@ -143,6 +155,12 @@ The following paths describe the **observed GitHub `main` tree**, not an idealiz
 | [`requirements-gui.txt`](requirements-gui.txt) | GUI dependencies **only**. Does not install the CUDA-specific PyTorch toolchain. |
 | [`verify_gui_setup.py`](verify_gui_setup.py) | **Legacy Phase 1-only** model-artifact preflight; not a complete check of the current 15-pipeline dashboard. |
 | [`README_GUI.md`](README_GUI.md) | Historical early four-tab GUI instructions; **superseded by this README and `app.py`**. |
+| [`README.md`](README.md) and [`.gitignore`](.gitignore) | This project guide and Git tracking rules, respectively. The ignored local dataset, weights, caches, and intermediate outputs do not all appear in a clone. |
+| [`app_before_duplicate_fix.py`](app_before_duplicate_fix.py) | **Historical application snapshot**, retained for provenance; launch [`app.py`](app.py) for the current seven-tab GUI instead. |
+| [`evaluate_leakage_clean_test.py`](evaluate_leakage_clean_test.py) and [`evaluate_leakage_clean_test_phase2.py`](evaluate_leakage_clean_test_phase2.py) | Post-audit evaluation scripts for Phase 1 and later selected Phase 2 states. These analyses exclude flagged test images post hoc; they **do not** retrain with a leakage-free split. |
+| [`requirements-reproduce.txt`](requirements-reproduce.txt) | Version-pinned non-PyTorch reproduction dependencies. Install a compatible `torch` / `torchvision` pair separately as described in the [reproduction guide](docs/REPRODUCE.md). |
+| [`project_files.txt`](project_files.txt) | Historical project file inventory; inspect the actual Git tree for the current list of published paths. |
+| [`test_resnet152_features.py`](test_resnet152_features.py), [`test_lstm_section.py`](test_lstm_section.py), [`test_post_lstm_layers.py`](test_post_lstm_layers.py), [`test_real_mri_batch.py`](test_real_mri_batch.py), [`test_training_step.py`](test_training_step.py), and [`test_complete_model.py`](test_complete_model.py) | Early architecture, tensor-shape, real-batch, training-step, and integration checks. **Not** a fresh-clone reproducibility certification or the final evaluation suite. |
 
 ### Key evidence files, directly linked
 
