@@ -1,0 +1,2 @@
+phash_distance,candidate_level,web_image_id,web_class,web_path,reference_dataset,reference_class,reference_path,same_class,exact_file_match,exact_pixel_match
+6,REVIEW_CANDIDATE,MEN_02,meningioma,external_data/web_stress_40_raw/meningioma/MEN_02.png,nickparvar,meningioma,data/brain_tumor_mri/Training/meningioma/Tr-me_0633.jpg,1,0,0

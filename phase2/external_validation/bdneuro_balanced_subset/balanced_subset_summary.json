@@ -1,0 +1,21 @@
+{
+  "source_cohort": "external_data/BDNeuro_V8_exact_clean",
+  "source_counts": {
+    "glioma": 1159,
+    "meningioma": 472,
+    "notumor": 412,
+    "pituitary": 601
+  },
+  "selection_method": "Deterministic SHA-256 ranking within each class. No model outputs or performance values were used.",
+  "selection_seed": "bdneuro-balanced-v1-seed42",
+  "images_per_class": 412,
+  "balanced_total": 1648,
+  "balanced_counts": {
+    "glioma": 412,
+    "meningioma": 412,
+    "notumor": 412,
+    "pituitary": 412
+  },
+  "output_dir": "external_data/BDNeuro_V8_exact_clean_balanced",
+  "source_cohort_modified": false
+}

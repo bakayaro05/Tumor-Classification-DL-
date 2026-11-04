@@ -1,0 +1,85 @@
+{
+  "candidate_id": "phase1_early_stopping__resnet152__early_stopping__best_model",
+  "stage": "phase1_early_stopping",
+  "backbone": "resnet152",
+  "variant": "early_stopping",
+  "checkpoint_state": "best_model",
+  "selected_epoch": 8,
+  "internal_validation_accuracy": 0.9825021872265967,
+  "internal_validation_macro_f1": 0.9820269201635893,
+  "external_dataset_fingerprint": "26da5c49d7a45c27ea4fbbf2a44957ffafba1cede0dd85c29a3510dc42f9591c",
+  "external_samples": 40,
+  "checkpoint_epoch_loaded": 8,
+  "external": {
+    "accuracy": 0.35,
+    "macro_precision": 0.6382575757575757,
+    "macro_recall": 0.35000000000000003,
+    "macro_f1": 0.2807812342696064,
+    "weighted_f1": 0.28078123426960633,
+    "confusion_matrix": [
+      [
+        2,
+        2,
+        6,
+        0
+      ],
+      [
+        0,
+        1,
+        9,
+        0
+      ],
+      [
+        0,
+        0,
+        10,
+        0
+      ],
+      [
+        0,
+        1,
+        8,
+        1
+      ]
+    ],
+    "classification_report": {
+      "glioma": {
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1-score": 0.3333333333333333,
+        "support": 10.0
+      },
+      "meningioma": {
+        "precision": 0.25,
+        "recall": 0.1,
+        "f1-score": 0.14285714285714285,
+        "support": 10.0
+      },
+      "notumor": {
+        "precision": 0.30303030303030304,
+        "recall": 1.0,
+        "f1-score": 0.46511627906976744,
+        "support": 10.0
+      },
+      "pituitary": {
+        "precision": 1.0,
+        "recall": 0.1,
+        "f1-score": 0.18181818181818182,
+        "support": 10.0
+      },
+      "accuracy": 0.35,
+      "macro avg": {
+        "precision": 0.6382575757575757,
+        "recall": 0.35000000000000003,
+        "f1-score": 0.2807812342696064,
+        "support": 40.0
+      },
+      "weighted avg": {
+        "precision": 0.6382575757575758,
+        "recall": 0.35,
+        "f1-score": 0.28078123426960633,
+        "support": 40.0
+      }
+    }
+  }
+}

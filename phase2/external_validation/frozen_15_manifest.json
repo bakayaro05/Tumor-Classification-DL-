@@ -1,0 +1,540 @@
+{
+  "purpose": "Frozen 15-model architecture-wise external-validation cohort. All selection was completed using internal validation only.",
+  "selection_details": {
+    "selection_rule": "Use INTERNAL full-hybrid validation accuracy; break ties by macro-F1; on an exact tie prefer best_val_within_30 over epoch_30.",
+    "phase2a_candidates_per_backbone": 2,
+    "phase2b_candidates_per_backbone": 14,
+    "selected": {
+      "vgg16": {
+        "phase1": {
+          "variant": "early_stopping",
+          "checkpoint_state": "best_model",
+          "internal_validation_accuracy": 0.9492563429571304,
+          "internal_validation_macro_f1": 0.9471804308763552
+        },
+        "phase2a": {
+          "variant": "lr1e-4_lstm256_dropout0.3",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 30,
+          "internal_validation_accuracy": 0.9588801399825022,
+          "internal_validation_macro_f1": 0.9574577028228534
+        },
+        "phase2b": {
+          "variant": "lr_5e-4",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 27,
+          "hyperparameters": {
+            "learning_rate": 0.0005,
+            "lstm_hidden_size": 256,
+            "dense_features": 128,
+            "dropout": 0.3
+          },
+          "internal_validation_accuracy": 0.9650043744531933,
+          "internal_validation_macro_f1": 0.9632104835532993
+        }
+      },
+      "vgg19": {
+        "phase1": {
+          "variant": "early_stopping",
+          "checkpoint_state": "best_model",
+          "internal_validation_accuracy": 0.9448818897637795,
+          "internal_validation_macro_f1": 0.943093215544522
+        },
+        "phase2a": {
+          "variant": "lr1e-4_lstm256_dropout0.3",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 30,
+          "internal_validation_accuracy": 0.9562554680664916,
+          "internal_validation_macro_f1": 0.9546221824251577
+        },
+        "phase2b": {
+          "variant": "dropout_0.5",
+          "checkpoint_state": "epoch_30",
+          "selected_epoch": 30,
+          "hyperparameters": {
+            "learning_rate": 0.0001,
+            "lstm_hidden_size": 256,
+            "dense_features": 128,
+            "dropout": 0.5
+          },
+          "internal_validation_accuracy": 0.9553805774278216,
+          "internal_validation_macro_f1": 0.9538235390702988
+        }
+      },
+      "resnet50": {
+        "phase1": {
+          "variant": "early_stopping",
+          "checkpoint_state": "best_model",
+          "internal_validation_accuracy": 0.9755030621172354,
+          "internal_validation_macro_f1": 0.9747272389868045
+        },
+        "phase2a": {
+          "variant": "lr1e-4_lstm256_dropout0.3",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 30,
+          "internal_validation_accuracy": 0.9868766404199475,
+          "internal_validation_macro_f1": 0.9864415985025665
+        },
+        "phase2b": {
+          "variant": "dropout_0.2",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 28,
+          "hyperparameters": {
+            "learning_rate": 0.0001,
+            "lstm_hidden_size": 256,
+            "dense_features": 128,
+            "dropout": 0.2
+          },
+          "internal_validation_accuracy": 0.9912510936132983,
+          "internal_validation_macro_f1": 0.9912239260383309
+        }
+      },
+      "resnet152": {
+        "phase1": {
+          "variant": "early_stopping",
+          "checkpoint_state": "best_model",
+          "internal_validation_accuracy": 0.9825021872265967,
+          "internal_validation_macro_f1": 0.9820269201635893
+        },
+        "phase2a": {
+          "variant": "lr1e-4_lstm256_dropout0.3",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 10,
+          "internal_validation_accuracy": 0.9860017497812773,
+          "internal_validation_macro_f1": 0.9854505611105872
+        },
+        "phase2b": {
+          "variant": "lstm_512",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 26,
+          "hyperparameters": {
+            "learning_rate": 0.0001,
+            "lstm_hidden_size": 512,
+            "dense_features": 128,
+            "dropout": 0.3
+          },
+          "internal_validation_accuracy": 0.9930008748906387,
+          "internal_validation_macro_f1": 0.9926502898477827
+        }
+      },
+      "efficientnet_b3": {
+        "phase1": {
+          "variant": "early_stopping",
+          "checkpoint_state": "best_model",
+          "internal_validation_accuracy": 0.9851268591426072,
+          "internal_validation_macro_f1": 0.9848611343464274
+        },
+        "phase2a": {
+          "variant": "lr1e-4_lstm256_dropout0.3",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 27,
+          "internal_validation_accuracy": 0.9930008748906387,
+          "internal_validation_macro_f1": 0.9927024161668719
+        },
+        "phase2b": {
+          "variant": "lstm_512",
+          "checkpoint_state": "best_val_within_30",
+          "selected_epoch": 29,
+          "hyperparameters": {
+            "learning_rate": 0.0001,
+            "lstm_hidden_size": 512,
+            "dense_features": 128,
+            "dropout": 0.3
+          },
+          "internal_validation_accuracy": 0.9938757655293088,
+          "internal_validation_macro_f1": 0.993769860961644
+        }
+      }
+    }
+  },
+  "class_names": [
+    "glioma",
+    "meningioma",
+    "notumor",
+    "pituitary"
+  ],
+  "class_to_idx": {
+    "glioma": 0,
+    "meningioma": 1,
+    "notumor": 2,
+    "pituitary": 3
+  },
+  "candidate_count": 15,
+  "candidates": [
+    {
+      "stage": "phase1_early_stopping",
+      "backbone": "vgg16",
+      "variant": "early_stopping",
+      "checkpoint_state": "best_model",
+      "selected_epoch": 16,
+      "internal_validation_accuracy": 0.9492563429571304,
+      "internal_validation_macro_f1": 0.9471804308763552,
+      "paths": {
+        "checkpoint": "experiments/vgg16/models/best_model.pth",
+        "scaler": "experiments/vgg16/pca/standard_scaler.joblib",
+        "pca": "experiments/vgg16/pca/pca_model.joblib",
+        "svm": "experiments/vgg16/models/svm.joblib",
+        "internal_results": "experiments/vgg16/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "52717612d3b5c7e3bb1e2a220a12dec683c8e437a56d24f17309b821a1addeb6",
+        "scaler": "c821dff67d4d9d8b6db3095b30c44489fc139d5d38b91eacd7e7c14aceb7f909",
+        "pca": "d111a737e7ca01b68b04e15ecacde870e3dcaff8da0ab00a00f86ca519e1024e",
+        "svm": "72a2f51fbaf23dcedb99374fb59ea8500a8b8d8adfcdc495a2d30f5c3d24884e",
+        "internal_results": "e74fea68e54e4b2e0f825ded449e806778afc47c4fa2e58f4eaecc6d628c24fa"
+      }
+    },
+    {
+      "stage": "phase2a_standard_30epoch",
+      "backbone": "vgg16",
+      "variant": "lr1e-4_lstm256_dropout0.3",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 30,
+      "internal_validation_accuracy": 0.9588801399825022,
+      "internal_validation_macro_f1": 0.9574577028228534,
+      "paths": {
+        "checkpoint": "phase2/experiments_30epoch/vgg16/models/best_val_within_30.pth",
+        "scaler": "phase2/experiments_30epoch/vgg16/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/experiments_30epoch/vgg16/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/experiments_30epoch/vgg16/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/experiments_30epoch/vgg16/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "bbed23efc50ab8300f47b53a186566ea7bf9f7136667e8d35349f1e28ebf8733",
+        "scaler": "f2d37b369060ab250f80fe5609d0a82b82473ae61046031560ad7172f1692870",
+        "pca": "b2e5213dab1c1a1e13b2e47fe64cdd5be1804723c04167fb154fbdd7f1b2e4b6",
+        "svm": "9e344179e498051463e7ead009ea6324c18c4d4d716dfcf53392835fc936d810",
+        "internal_results": "bf5653c484808f336eed462cdf55421b092fe5b2d4fb993508ed18eaa4339109"
+      }
+    },
+    {
+      "stage": "phase2b_tuned",
+      "backbone": "vgg16",
+      "variant": "lr_5e-4",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 27,
+      "hyperparameters": {
+        "learning_rate": 0.0005,
+        "lstm_hidden_size": 256,
+        "dense_features": 128,
+        "dropout": 0.3
+      },
+      "internal_validation_accuracy": 0.9650043744531933,
+      "internal_validation_macro_f1": 0.9632104835532993,
+      "paths": {
+        "checkpoint": "phase2/hyperparameter_dl/vgg16/lr_5e-4/models/best_val_within_30.pth",
+        "scaler": "phase2/hyperparameter_dl/vgg16/lr_5e-4/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/hyperparameter_dl/vgg16/lr_5e-4/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/hyperparameter_dl/vgg16/lr_5e-4/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/hyperparameter_dl/vgg16/lr_5e-4/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "8e36225963689f27820ac873dad16ca716fe2533fc313a019d0636b2e0798a79",
+        "scaler": "63af0d8c19804cbe09cd6ff6aa2475cb310de7fb468e5c5fd828f1d246c64833",
+        "pca": "225555bc1ec9f253d75a2248515a2759bd5d08f57e61fb320cd385544f45cc90",
+        "svm": "371e67ed7e061cf328326e512ba97f8c6560b9654254720e98714faf4cb47983",
+        "internal_results": "35f52f551c8d6e5e7890a382eb609d3bfaabb36f43e9a5f6419aa421cad5df97"
+      }
+    },
+    {
+      "stage": "phase1_early_stopping",
+      "backbone": "vgg19",
+      "variant": "early_stopping",
+      "checkpoint_state": "best_model",
+      "selected_epoch": 18,
+      "internal_validation_accuracy": 0.9448818897637795,
+      "internal_validation_macro_f1": 0.943093215544522,
+      "paths": {
+        "checkpoint": "experiments/vgg19/models/best_model.pth",
+        "scaler": "experiments/vgg19/pca/standard_scaler.joblib",
+        "pca": "experiments/vgg19/pca/pca_model.joblib",
+        "svm": "experiments/vgg19/models/svm.joblib",
+        "internal_results": "experiments/vgg19/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "e522e4cac825971320cb012405d623f1ae712c3f86aedb9a610c821a8729c1a3",
+        "scaler": "a2f18f1aac58fa53f45e46fd5b9e042e3a0cfb26fd45b9cb41687da8bf66de72",
+        "pca": "9f1365650610961dce1e2ae2cfa903413cccc40d2aba2ce91e8b9e439767067e",
+        "svm": "05f67b9804666201fd21e3783ec4be9aaa425343cb02a1905f15225f0e46506e",
+        "internal_results": "9fac475d12eae38ff3fd608e503eaf003ce0ad464c87c5d4540dc2d8548795a1"
+      }
+    },
+    {
+      "stage": "phase2a_standard_30epoch",
+      "backbone": "vgg19",
+      "variant": "lr1e-4_lstm256_dropout0.3",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 30,
+      "internal_validation_accuracy": 0.9562554680664916,
+      "internal_validation_macro_f1": 0.9546221824251577,
+      "paths": {
+        "checkpoint": "phase2/experiments_30epoch/vgg19/models/best_val_within_30.pth",
+        "scaler": "phase2/experiments_30epoch/vgg19/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/experiments_30epoch/vgg19/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/experiments_30epoch/vgg19/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/experiments_30epoch/vgg19/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "444307223aaa630b2f3071da90d508253cfd8f12647d701256804481de63e88b",
+        "scaler": "73b226ee6ce01f522764d07eafbcb19bc163724ec45c3cd571faac35967fc0d3",
+        "pca": "bbf32d07b75b78dc83dd84cf21409405f49cd98710ca5cb0d2c997397bf88c70",
+        "svm": "fd8617bf40034ba7febfe402ffa92b6389c629d6b35cc125566b763cea9f1083",
+        "internal_results": "b0629c0f7fe81cd28c44b4e32f1eb4ff3372504919f423fa58726b92b2902c2a"
+      }
+    },
+    {
+      "stage": "phase2b_tuned",
+      "backbone": "vgg19",
+      "variant": "dropout_0.5",
+      "checkpoint_state": "epoch_30",
+      "selected_epoch": 30,
+      "hyperparameters": {
+        "learning_rate": 0.0001,
+        "lstm_hidden_size": 256,
+        "dense_features": 128,
+        "dropout": 0.5
+      },
+      "internal_validation_accuracy": 0.9553805774278216,
+      "internal_validation_macro_f1": 0.9538235390702988,
+      "paths": {
+        "checkpoint": "phase2/hyperparameter_dl/vgg19/dropout_0.5/models/epoch_30_model.pth",
+        "scaler": "phase2/hyperparameter_dl/vgg19/dropout_0.5/evaluations/epoch_30/pca/standard_scaler.joblib",
+        "pca": "phase2/hyperparameter_dl/vgg19/dropout_0.5/evaluations/epoch_30/pca/pca_model.joblib",
+        "svm": "phase2/hyperparameter_dl/vgg19/dropout_0.5/evaluations/epoch_30/models/svm.joblib",
+        "internal_results": "phase2/hyperparameter_dl/vgg19/dropout_0.5/evaluations/epoch_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "303832bd7012aff368dcda2e7e4cade2d7c29928cadad6be9653935764c022dc",
+        "scaler": "d0243c84e3ab4530e0c552a42cb483c6f5c072c80a8b10cea2e403a2df0a83e1",
+        "pca": "924823077d37d3c51efbde972ea7426dbfe49789d12e60696db6412f7f4861f2",
+        "svm": "ce94cc3294a58c41b385503e0e6dd2092bb9e825050d7e79d125a85829d8aa36",
+        "internal_results": "05224f246b1774ee8153d43833ac6e9d4b9cc56e8727d4f90068da3d79ba589e"
+      }
+    },
+    {
+      "stage": "phase1_early_stopping",
+      "backbone": "resnet50",
+      "variant": "early_stopping",
+      "checkpoint_state": "best_model",
+      "selected_epoch": 7,
+      "internal_validation_accuracy": 0.9755030621172354,
+      "internal_validation_macro_f1": 0.9747272389868045,
+      "paths": {
+        "checkpoint": "experiments/resnet50/models/best_model.pth",
+        "scaler": "experiments/resnet50/pca/standard_scaler.joblib",
+        "pca": "experiments/resnet50/pca/pca_model.joblib",
+        "svm": "experiments/resnet50/models/svm.joblib",
+        "internal_results": "experiments/resnet50/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "4ef742d99abd3f71ff278bef971d10d01b7fb2e9548ec1748c2505e158f74586",
+        "scaler": "dfdacba6ba2d8913585024dae7ec60e6fc8181c4f0bed417745e63942b64c659",
+        "pca": "878f86927c0b04f7e950740a402bd6597db318ed2a5540421b06abb7cf16c754",
+        "svm": "192cd79424ab2c7db7ed4b6c7200a8cd1363a4a5abf841ffa957f5f4dd6053df",
+        "internal_results": "ada6769613d0e22a73478be3a8fc55037c19f543dbecec38950549ff6ea1aaeb"
+      }
+    },
+    {
+      "stage": "phase2a_standard_30epoch",
+      "backbone": "resnet50",
+      "variant": "lr1e-4_lstm256_dropout0.3",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 30,
+      "internal_validation_accuracy": 0.9868766404199475,
+      "internal_validation_macro_f1": 0.9864415985025665,
+      "paths": {
+        "checkpoint": "phase2/experiments_30epoch/resnet50/models/best_val_within_30.pth",
+        "scaler": "phase2/experiments_30epoch/resnet50/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/experiments_30epoch/resnet50/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/experiments_30epoch/resnet50/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/experiments_30epoch/resnet50/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "672fd7cb6b15028c791e8f4c44ee50f42bdc6e2316a1fe42fa1c9be855380339",
+        "scaler": "0d7309a3aa2664600c86fd9fff971c7e3ebd2ebf7d04e2bf4a936997ab3a0c96",
+        "pca": "0ece3b3d842481cdc0096c4f7ee819a13bb2e3cfb5b879218eba4e2780d10754",
+        "svm": "20e5a1d5a4efbb0b7d539f268a775fa1deb5cca1e1c5035ef59e7404d2d049c3",
+        "internal_results": "0e58c50903220fad91cdd78a7b5eaa22a945b1b5341a39ef7517e3096d5849ab"
+      }
+    },
+    {
+      "stage": "phase2b_tuned",
+      "backbone": "resnet50",
+      "variant": "dropout_0.2",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 28,
+      "hyperparameters": {
+        "learning_rate": 0.0001,
+        "lstm_hidden_size": 256,
+        "dense_features": 128,
+        "dropout": 0.2
+      },
+      "internal_validation_accuracy": 0.9912510936132983,
+      "internal_validation_macro_f1": 0.9912239260383309,
+      "paths": {
+        "checkpoint": "phase2/hyperparameter_dl/resnet50/dropout_0.2/models/best_val_within_30.pth",
+        "scaler": "phase2/hyperparameter_dl/resnet50/dropout_0.2/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/hyperparameter_dl/resnet50/dropout_0.2/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/hyperparameter_dl/resnet50/dropout_0.2/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/hyperparameter_dl/resnet50/dropout_0.2/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "a5cfc93eb6ab3c8640a1ad72c55aaffe9272dfdca3cc18c84ad65f948d61270b",
+        "scaler": "e40c134ba1cc6a24ba06f674928f028e82080ea2d1aea268d4cac85b1aafc430",
+        "pca": "ae3c3960d3e0a8e494da0d8ba78310643859965e8a2e77fe2d7b5ca2fca47fa4",
+        "svm": "b3f8380a93f218d584a2161867aac4ec94f41280ce6abcb83681f5214e487553",
+        "internal_results": "90147f5097ee453d0615a3798af7c8b1005718ccff9f02471f015989ef3ba691"
+      }
+    },
+    {
+      "stage": "phase1_early_stopping",
+      "backbone": "resnet152",
+      "variant": "early_stopping",
+      "checkpoint_state": "best_model",
+      "selected_epoch": 8,
+      "internal_validation_accuracy": 0.9825021872265967,
+      "internal_validation_macro_f1": 0.9820269201635893,
+      "paths": {
+        "checkpoint": "experiments/resnet152/models/best_model.pth",
+        "scaler": "experiments/resnet152/pca/standard_scaler.joblib",
+        "pca": "experiments/resnet152/pca/pca_model.joblib",
+        "svm": "experiments/resnet152/models/svm.joblib",
+        "internal_results": "experiments/resnet152/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "d7550252daa4f6a7c5826b45012fc42bcab669d005d6cd32ef0a2a46af54f4d6",
+        "scaler": "3b419338902174685d60d082e42eb2b5f8e236da7ff828ec970a5a4daa293eca",
+        "pca": "000b7150b095a83c192aa177aa4605d96649db87d304495d0a5b5924331212f4",
+        "svm": "eff4269134899cd3e5cb0a115a137108ac49d780ff76a91406781d983c947a66",
+        "internal_results": "0499a3bd4c721e82d484ffd67e8817d6dcfa3cdde4843d7220786032cde9c795"
+      }
+    },
+    {
+      "stage": "phase2a_standard_30epoch",
+      "backbone": "resnet152",
+      "variant": "lr1e-4_lstm256_dropout0.3",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 10,
+      "internal_validation_accuracy": 0.9860017497812773,
+      "internal_validation_macro_f1": 0.9854505611105872,
+      "paths": {
+        "checkpoint": "phase2/experiments_30epoch/resnet152/models/best_val_within_30.pth",
+        "scaler": "phase2/experiments_30epoch/resnet152/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/experiments_30epoch/resnet152/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/experiments_30epoch/resnet152/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/experiments_30epoch/resnet152/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "eff0962a5d20fd9fe8355903114af32dff328fd9a9018a00d045afbd26c62cfa",
+        "scaler": "fd5460f814707b4c2659d431811201312c9b62235ebfbc5f41d52251f1fd0a40",
+        "pca": "77dd3ae4713a000aee30f998e06f85ba4bbff51376fdb69b607497632702df84",
+        "svm": "6c888d5668bb8c5e84f458e88fa2be258ca3fd4c2523dca03a2c6c0958b8f5f3",
+        "internal_results": "f701e4d419cf2638e3479407a2c12684779ec3f7661447f1cf4a06d80e248b44"
+      }
+    },
+    {
+      "stage": "phase2b_tuned",
+      "backbone": "resnet152",
+      "variant": "lstm_512",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 26,
+      "hyperparameters": {
+        "learning_rate": 0.0001,
+        "lstm_hidden_size": 512,
+        "dense_features": 128,
+        "dropout": 0.3
+      },
+      "internal_validation_accuracy": 0.9930008748906387,
+      "internal_validation_macro_f1": 0.9926502898477827,
+      "paths": {
+        "checkpoint": "phase2/hyperparameter_dl/resnet152/lstm_512/models/best_val_within_30.pth",
+        "scaler": "phase2/hyperparameter_dl/resnet152/lstm_512/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/hyperparameter_dl/resnet152/lstm_512/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/hyperparameter_dl/resnet152/lstm_512/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/hyperparameter_dl/resnet152/lstm_512/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "0a934438b3a3a625e20e067815455affab280c304ba6a2978f8c36524e3a477e",
+        "scaler": "1bbae9b6ad1d6f1022c2c923eb7b113095a390ee93ed08c1ace46f443f9e80ef",
+        "pca": "488bd90e668a8df0f89e5f8ef9e7508b1f34ab33486df3546a01f0c0bfd5c992",
+        "svm": "82d25ad7a738b67439f7190e76adc03f9598717dbdb8b90f71560ec6d7580da0",
+        "internal_results": "faf36f244cd0d5fe6be9f5a87867b06ebc1a6d097ae7022d58a30c020019d43d"
+      }
+    },
+    {
+      "stage": "phase1_early_stopping",
+      "backbone": "efficientnet_b3",
+      "variant": "early_stopping",
+      "checkpoint_state": "best_model",
+      "selected_epoch": 6,
+      "internal_validation_accuracy": 0.9851268591426072,
+      "internal_validation_macro_f1": 0.9848611343464274,
+      "paths": {
+        "checkpoint": "experiments/efficientnet_b3/models/best_model.pth",
+        "scaler": "experiments/efficientnet_b3/pca/standard_scaler.joblib",
+        "pca": "experiments/efficientnet_b3/pca/pca_model.joblib",
+        "svm": "experiments/efficientnet_b3/models/svm.joblib",
+        "internal_results": "experiments/efficientnet_b3/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "1895273901315979a81fc3f7100caf71ac740949c035341e217e21fc7a874d93",
+        "scaler": "369e21b81e6f93b0b67afcd6c4704158608d6e08a16b24804013867b111c9165",
+        "pca": "c36a01b7b02b432facb57cfe49e94de79708a2ef1ef710a231ffa5d5ec0fc6d6",
+        "svm": "e883d43372375de23e65cf35fb7375c97fc7f5ae9a9015759dcc8b4d022b8b33",
+        "internal_results": "8b67a17948715cf1a3b732ab15d0c5ff53238be96bcbdf68887bf686ead6ede5"
+      }
+    },
+    {
+      "stage": "phase2a_standard_30epoch",
+      "backbone": "efficientnet_b3",
+      "variant": "lr1e-4_lstm256_dropout0.3",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 27,
+      "internal_validation_accuracy": 0.9930008748906387,
+      "internal_validation_macro_f1": 0.9927024161668719,
+      "paths": {
+        "checkpoint": "phase2/experiments_30epoch/efficientnet_b3/models/best_val_within_30.pth",
+        "scaler": "phase2/experiments_30epoch/efficientnet_b3/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/experiments_30epoch/efficientnet_b3/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/experiments_30epoch/efficientnet_b3/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/experiments_30epoch/efficientnet_b3/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "f11cf90a6c94aeb20f457dd1ca4b539ea7d8b36b9784b783329f283c726e9721",
+        "scaler": "f2e4a13a52df33ed9b5f257ba0547f26401a7500ff40b654651226961ddbc77c",
+        "pca": "c4942ee8497c72f6d26cf6c2293b590b072fc59e3f952772d96439bf0f8af312",
+        "svm": "1a5dd497f9ca290d4b8e820aec6b0451c995fa42c56599faf942ae91efe843d1",
+        "internal_results": "e6f10d98b8d972974055d8e9edb3e5228616b079a4957bde2e3dda111a4ecb72"
+      }
+    },
+    {
+      "stage": "phase2b_tuned",
+      "backbone": "efficientnet_b3",
+      "variant": "lstm_512",
+      "checkpoint_state": "best_val_within_30",
+      "selected_epoch": 29,
+      "hyperparameters": {
+        "learning_rate": 0.0001,
+        "lstm_hidden_size": 512,
+        "dense_features": 128,
+        "dropout": 0.3
+      },
+      "internal_validation_accuracy": 0.9938757655293088,
+      "internal_validation_macro_f1": 0.993769860961644,
+      "paths": {
+        "checkpoint": "phase2/hyperparameter_dl/efficientnet_b3/lstm_512/models/best_val_within_30.pth",
+        "scaler": "phase2/hyperparameter_dl/efficientnet_b3/lstm_512/evaluations/best_val_within_30/pca/standard_scaler.joblib",
+        "pca": "phase2/hyperparameter_dl/efficientnet_b3/lstm_512/evaluations/best_val_within_30/pca/pca_model.joblib",
+        "svm": "phase2/hyperparameter_dl/efficientnet_b3/lstm_512/evaluations/best_val_within_30/models/svm.joblib",
+        "internal_results": "phase2/hyperparameter_dl/efficientnet_b3/lstm_512/evaluations/best_val_within_30/results/final_results.json"
+      },
+      "sha256": {
+        "checkpoint": "321ce680e4fa82f1c58aea3e363569c09dc793009a9863a3da1b4970ed0c6027",
+        "scaler": "ec8a9a78e06225c2fbc7a53dc1a6852586c3d1601fc409b899118410d6289fdb",
+        "pca": "468b0223cc85d0f413159e3a3f37554ad665db785d83b72926e3fa65a860d437",
+        "svm": "77976f0142d0a203305318cbb745252b4a308aacbed7d1d664359ba1b464d6b1",
+        "internal_results": "383e4e244575f0c927420df0a637adb80b516c30f7b05d1d448c3813c4ffc038"
+      }
+    }
+  ]
+}

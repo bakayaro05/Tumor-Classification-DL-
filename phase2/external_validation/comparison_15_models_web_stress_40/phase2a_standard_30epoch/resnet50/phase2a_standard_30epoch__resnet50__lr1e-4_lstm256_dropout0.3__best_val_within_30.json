@@ -1,0 +1,85 @@
+{
+  "candidate_id": "phase2a_standard_30epoch__resnet50__lr1e-4_lstm256_dropout0.3__best_val_within_30",
+  "stage": "phase2a_standard_30epoch",
+  "backbone": "resnet50",
+  "variant": "lr1e-4_lstm256_dropout0.3",
+  "checkpoint_state": "best_val_within_30",
+  "selected_epoch": 30,
+  "internal_validation_accuracy": 0.9868766404199475,
+  "internal_validation_macro_f1": 0.9864415985025665,
+  "external_dataset_fingerprint": "26da5c49d7a45c27ea4fbbf2a44957ffafba1cede0dd85c29a3510dc42f9591c",
+  "external_samples": 40,
+  "checkpoint_epoch_loaded": 30,
+  "external": {
+    "accuracy": 0.425,
+    "macro_precision": 0.5416666666666666,
+    "macro_recall": 0.42500000000000004,
+    "macro_f1": 0.3817948717948718,
+    "weighted_f1": 0.3817948717948718,
+    "confusion_matrix": [
+      [
+        2,
+        2,
+        5,
+        1
+      ],
+      [
+        0,
+        8,
+        2,
+        0
+      ],
+      [
+        0,
+        3,
+        6,
+        1
+      ],
+      [
+        0,
+        2,
+        7,
+        1
+      ]
+    ],
+    "classification_report": {
+      "glioma": {
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1-score": 0.3333333333333333,
+        "support": 10.0
+      },
+      "meningioma": {
+        "precision": 0.5333333333333333,
+        "recall": 0.8,
+        "f1-score": 0.64,
+        "support": 10.0
+      },
+      "notumor": {
+        "precision": 0.3,
+        "recall": 0.6,
+        "f1-score": 0.4,
+        "support": 10.0
+      },
+      "pituitary": {
+        "precision": 0.3333333333333333,
+        "recall": 0.1,
+        "f1-score": 0.15384615384615385,
+        "support": 10.0
+      },
+      "accuracy": 0.425,
+      "macro avg": {
+        "precision": 0.5416666666666666,
+        "recall": 0.42500000000000004,
+        "f1-score": 0.3817948717948718,
+        "support": 40.0
+      },
+      "weighted avg": {
+        "precision": 0.5416666666666666,
+        "recall": 0.425,
+        "f1-score": 0.3817948717948718,
+        "support": 40.0
+      }
+    }
+  }
+}

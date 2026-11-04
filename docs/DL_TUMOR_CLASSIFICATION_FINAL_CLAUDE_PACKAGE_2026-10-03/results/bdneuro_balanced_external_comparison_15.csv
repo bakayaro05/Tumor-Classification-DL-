@@ -1,0 +1,16 @@
+stage,backbone,variant,checkpoint_state,selected_epoch,internal_val_accuracy_pct,internal_val_macro_f1_pct,external_accuracy_pct,external_macro_precision_pct,external_macro_recall_pct,external_macro_f1_pct,external_weighted_f1_pct,external_minus_internal_accuracy_pp
+phase1_early_stopping,vgg16,early_stopping,best_model,16,94.925634,94.718043,77.184466,79.409528,77.184466,76.818486,76.818486,-17.741168
+phase2a_standard_30epoch,vgg16,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,95.888014,95.74577,80.703883,83.307311,80.703883,80.61935,80.61935,-15.184131
+phase2b_tuned,vgg16,lr_5e-4,best_val_within_30,27,96.500437,96.321048,78.15534,80.902448,78.15534,77.884923,77.884923,-18.345098
+phase1_early_stopping,vgg19,early_stopping,best_model,18,94.488189,94.309322,77.487864,80.190824,77.487864,77.639542,77.639542,-17.000325
+phase2a_standard_30epoch,vgg19,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,95.625547,95.462218,81.128641,82.760897,81.128641,81.236694,81.236694,-14.496906
+phase2b_tuned,vgg19,dropout_0.5,epoch_30,30,95.538058,95.382354,77.002427,79.723997,77.002427,77.153819,77.153819,-18.535631
+phase1_early_stopping,resnet50,early_stopping,best_model,7,97.550306,97.472724,83.737864,86.726977,83.737864,83.803207,83.803207,-13.812442
+phase2a_standard_30epoch,resnet50,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,98.687664,98.64416,86.771845,89.117594,86.771845,86.897589,86.897589,-11.915819
+phase2b_tuned,resnet50,dropout_0.2,best_val_within_30,28,99.125109,99.122393,87.864078,89.212354,87.864078,87.872751,87.872751,-11.261032
+phase1_early_stopping,resnet152,early_stopping,best_model,8,98.250219,98.202692,85.133495,87.418411,85.133495,85.131757,85.131757,-13.116724
+phase2a_standard_30epoch,resnet152,lr1e-4_lstm256_dropout0.3,best_val_within_30,10,98.600175,98.545056,90.473301,90.84875,90.473301,90.496811,90.496811,-8.126874
+phase2b_tuned,resnet152,lstm_512,best_val_within_30,26,99.300087,99.265029,89.805825,90.581185,89.805825,89.761658,89.761658,-9.494262
+phase1_early_stopping,efficientnet_b3,early_stopping,best_model,6,98.512686,98.486113,85.436893,88.029622,85.436893,85.604955,85.604955,-13.075793
+phase2a_standard_30epoch,efficientnet_b3,lr1e-4_lstm256_dropout0.3,best_val_within_30,27,99.300087,99.270242,87.864078,89.190653,87.864078,87.786545,87.786545,-11.43601
+phase2b_tuned,efficientnet_b3,lstm_512,best_val_within_30,29,99.387577,99.376986,88.834951,91.024302,88.834951,88.955631,88.955631,-10.552625

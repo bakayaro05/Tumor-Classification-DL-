@@ -1,0 +1,17 @@
+{
+  "status": "LOCKED_BEFORE_INFERENCE",
+  "dataset": "web_stress_40",
+  "images_total": 40,
+  "class_counts": {
+    "glioma": 10,
+    "meningioma": 10,
+    "notumor": 10,
+    "pituitary": 10
+  },
+  "within_web_exact_pixel_duplicates": 0,
+  "cross_dataset_exact_pixel_duplicates": 0,
+  "phash_le_6_reviewed": 1,
+  "phash_le_4": 0,
+  "cohort_sha256": "ff9acf95f8c98a84df85293646c24e3dedfa054c7f9f0a01c1f47cb8c12fa0bd",
+  "rule": "No image may be replaced, removed, recropped, edited or substituted after model predictions are viewed."
+}

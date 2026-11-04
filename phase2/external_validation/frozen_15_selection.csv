@@ -1,0 +1,16 @@
+stage,backbone,variant,checkpoint_state,selected_epoch,internal_validation_accuracy,internal_validation_macro_f1
+phase1_early_stopping,vgg16,early_stopping,best_model,16,0.9492563429571304,0.9471804308763552
+phase2a_standard_30epoch,vgg16,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,0.9588801399825022,0.9574577028228534
+phase2b_tuned,vgg16,lr_5e-4,best_val_within_30,27,0.9650043744531933,0.9632104835532993
+phase1_early_stopping,vgg19,early_stopping,best_model,18,0.9448818897637795,0.943093215544522
+phase2a_standard_30epoch,vgg19,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,0.9562554680664916,0.9546221824251577
+phase2b_tuned,vgg19,dropout_0.5,epoch_30,30,0.9553805774278216,0.9538235390702988
+phase1_early_stopping,resnet50,early_stopping,best_model,7,0.9755030621172354,0.9747272389868045
+phase2a_standard_30epoch,resnet50,lr1e-4_lstm256_dropout0.3,best_val_within_30,30,0.9868766404199475,0.9864415985025665
+phase2b_tuned,resnet50,dropout_0.2,best_val_within_30,28,0.9912510936132983,0.9912239260383309
+phase1_early_stopping,resnet152,early_stopping,best_model,8,0.9825021872265967,0.9820269201635893
+phase2a_standard_30epoch,resnet152,lr1e-4_lstm256_dropout0.3,best_val_within_30,10,0.9860017497812773,0.9854505611105872
+phase2b_tuned,resnet152,lstm_512,best_val_within_30,26,0.9930008748906387,0.9926502898477827
+phase1_early_stopping,efficientnet_b3,early_stopping,best_model,6,0.9851268591426072,0.9848611343464274
+phase2a_standard_30epoch,efficientnet_b3,lr1e-4_lstm256_dropout0.3,best_val_within_30,27,0.9930008748906387,0.9927024161668719
+phase2b_tuned,efficientnet_b3,lstm_512,best_val_within_30,29,0.9938757655293088,0.993769860961644

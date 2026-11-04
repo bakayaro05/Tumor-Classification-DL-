@@ -1,0 +1,31 @@
+{
+  "selected_final_candidate": "ResNet152 Phase 2A standardized 30-epoch pipeline",
+  "backbone": "resnet152",
+  "phase": "phase2a_standard_30epoch",
+  "variant": "lr1e-4_lstm256_dropout0.3",
+  "checkpoint_state": "best_val_within_30",
+  "selected_epoch": 10,
+  "configuration": {
+    "optimizer": "RMSprop",
+    "learning_rate": 0.0001,
+    "lstm_hidden_size": 256,
+    "dropout": 0.3,
+    "dense_features": 128,
+    "pca_components": 64,
+    "svm_kernel": "linear",
+    "svm_C": 1.0
+  },
+  "evidence": {
+    "internal_full_hybrid_val_accuracy_pct": 98.600175,
+    "internal_full_hybrid_val_macro_f1_pct": 98.545056,
+    "bdneuro_full_accuracy_pct": 88.313162,
+    "bdneuro_full_macro_f1_pct": 87.854138,
+    "bdneuro_balanced_accuracy_pct": 90.473301,
+    "bdneuro_balanced_macro_f1_pct": 90.496811,
+    "web_stress_accuracy_pct": 37.5,
+    "web_stress_macro_f1_pct": 31.664963,
+    "bdneuro_full_internal_to_external_drop_pp": -10.287013,
+    "bdneuro_balanced_internal_to_external_drop_pp": -8.126874
+  },
+  "selection_interpretation": "Retrospective project-level representative based on the combined body of evidence. External results were not used to retrain, refit or alter any model. The 40-image web stress test is exploratory and does not override the much larger structured BDNeuro validation."
+}

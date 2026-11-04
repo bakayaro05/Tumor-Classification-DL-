@@ -1,0 +1,48 @@
+{
+  "package_name": "DL_TUMOR_CLASSIFICATION_FINAL_CLAUDE_PACKAGE_2026-10-03",
+  "authoritative_status_date": "2026-10-03",
+  "total_files_excluding_generated_manifest_files": 224,
+  "total_bytes_excluding_generated_manifest_files": 7652052,
+  "category_counts": {
+    "(root)": {
+      "files": 2,
+      "bytes": 33394
+    },
+    "docs": {
+      "files": 20,
+      "bytes": 149204
+    },
+    "historical_transfer": {
+      "files": 18,
+      "bytes": 122533
+    },
+    "manifests": {
+      "files": 7,
+      "bytes": 38984
+    },
+    "raw_packages": {
+      "files": 3,
+      "bytes": 383227
+    },
+    "references": {
+      "files": 4,
+      "bytes": 5896517
+    },
+    "results": {
+      "files": 134,
+      "bytes": 570523
+    },
+    "scripts": {
+      "files": 32,
+      "bytes": 381583
+    },
+    "source_evidence": {
+      "files": 4,
+      "bytes": 76087
+    }
+  },
+  "authoritative_master": "MASTER_FINAL_PROJECT_CONTEXT.md",
+  "final_selected_candidate": "ResNet152 Phase 2A standardized 30-epoch, LR1e-4/LSTM256/dropout0.3, best state epoch10",
+  "phase_status": "PPT Phases 1,2A,2B,2C,2D,3,4,5,6 complete for the mini-project experimental/documentation scope",
+  "raw_artifact_limitation": "Binary checkpoints/joblib/npy and some live-repository files were never attached to this session; their paths/roles are indexed and not fabricated."
+}

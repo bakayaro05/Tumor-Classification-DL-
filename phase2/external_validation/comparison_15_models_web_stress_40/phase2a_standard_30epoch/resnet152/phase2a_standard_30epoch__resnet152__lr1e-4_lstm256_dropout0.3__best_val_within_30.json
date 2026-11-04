@@ -1,0 +1,85 @@
+{
+  "candidate_id": "phase2a_standard_30epoch__resnet152__lr1e-4_lstm256_dropout0.3__best_val_within_30",
+  "stage": "phase2a_standard_30epoch",
+  "backbone": "resnet152",
+  "variant": "lr1e-4_lstm256_dropout0.3",
+  "checkpoint_state": "best_val_within_30",
+  "selected_epoch": 10,
+  "internal_validation_accuracy": 0.9860017497812773,
+  "internal_validation_macro_f1": 0.9854505611105872,
+  "external_dataset_fingerprint": "26da5c49d7a45c27ea4fbbf2a44957ffafba1cede0dd85c29a3510dc42f9591c",
+  "external_samples": 40,
+  "checkpoint_epoch_loaded": 10,
+  "external": {
+    "accuracy": 0.375,
+    "macro_precision": 0.41369047619047616,
+    "macro_recall": 0.375,
+    "macro_f1": 0.3166496328261034,
+    "weighted_f1": 0.31664963282610337,
+    "confusion_matrix": [
+      [
+        1,
+        2,
+        6,
+        1
+      ],
+      [
+        0,
+        4,
+        6,
+        0
+      ],
+      [
+        1,
+        0,
+        9,
+        0
+      ],
+      [
+        2,
+        1,
+        6,
+        1
+      ]
+    ],
+    "classification_report": {
+      "glioma": {
+        "precision": 0.25,
+        "recall": 0.1,
+        "f1-score": 0.14285714285714285,
+        "support": 10.0
+      },
+      "meningioma": {
+        "precision": 0.5714285714285714,
+        "recall": 0.4,
+        "f1-score": 0.47058823529411764,
+        "support": 10.0
+      },
+      "notumor": {
+        "precision": 0.3333333333333333,
+        "recall": 0.9,
+        "f1-score": 0.4864864864864865,
+        "support": 10.0
+      },
+      "pituitary": {
+        "precision": 0.5,
+        "recall": 0.1,
+        "f1-score": 0.16666666666666666,
+        "support": 10.0
+      },
+      "accuracy": 0.375,
+      "macro avg": {
+        "precision": 0.41369047619047616,
+        "recall": 0.375,
+        "f1-score": 0.3166496328261034,
+        "support": 40.0
+      },
+      "weighted avg": {
+        "precision": 0.41369047619047616,
+        "recall": 0.375,
+        "f1-score": 0.31664963282610337,
+        "support": 40.0
+      }
+    }
+  }
+}

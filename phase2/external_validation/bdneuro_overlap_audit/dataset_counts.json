@@ -1,0 +1,28 @@
+{
+  "internal_total": 7023,
+  "bdneuro_total": 5941,
+  "internal_split_class_counts": {
+    "Testing/glioma": 300,
+    "Testing/meningioma": 306,
+    "Testing/notumor": 405,
+    "Testing/pituitary": 300,
+    "Training/glioma": 1321,
+    "Training/meningioma": 1339,
+    "Training/notumor": 1595,
+    "Training/pituitary": 1457
+  },
+  "bdneuro_split_class_counts": {
+    "test/glioma": 328,
+    "test/meningioma": 221,
+    "test/no_tumor": 118,
+    "test/pituitary": 222,
+    "train/glioma": 1534,
+    "train/meningioma": 1035,
+    "train/no_tumor": 551,
+    "train/pituitary": 1040,
+    "val/glioma": 329,
+    "val/meningioma": 222,
+    "val/no_tumor": 118,
+    "val/pituitary": 223
+  }
+}

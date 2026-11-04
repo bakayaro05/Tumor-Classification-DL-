@@ -1,0 +1,61 @@
+{
+    "description": "Five-backbone deterministic post-training evaluation of the saved CNN-LSTM 4-class neural classifier heads before StandardScaler/PCA/SVM.",
+    "metric_units": "percent for fields ending in _percent",
+    "rows": [
+        {
+            "backbone": "vgg16",
+            "best_epoch": 16,
+            "train_accuracy_percent": 97.8988837820092,
+            "validation_accuracy_percent": 94.57567804024497,
+            "test_accuracy_percent": 93.66895499618612,
+            "test_macro_precision_percent": 93.563293512348,
+            "test_macro_recall_percent": 93.22857661583153,
+            "test_macro_f1_percent": 93.32269667000216,
+            "test_weighted_f1_percent": 93.63412829642192
+        },
+        {
+            "backbone": "vgg19",
+            "best_epoch": 18,
+            "train_accuracy_percent": 97.9645436638214,
+            "validation_accuracy_percent": 94.57567804024497,
+            "test_accuracy_percent": 93.13501144164759,
+            "test_macro_precision_percent": 92.9595714535478,
+            "test_macro_recall_percent": 92.62363834422658,
+            "test_macro_f1_percent": 92.72428969068143,
+            "test_weighted_f1_percent": 93.09507407935952
+        },
+        {
+            "backbone": "resnet50",
+            "best_epoch": 7,
+            "train_accuracy_percent": 99.10264828189976,
+            "validation_accuracy_percent": 97.72528433945756,
+            "test_accuracy_percent": 97.33028222730739,
+            "test_macro_precision_percent": 97.24288171482108,
+            "test_macro_recall_percent": 97.17102396514161,
+            "test_macro_f1_percent": 97.189335150818,
+            "test_weighted_f1_percent": 97.32603962182111
+        },
+        {
+            "backbone": "resnet152",
+            "best_epoch": 8,
+            "train_accuracy_percent": 99.36528780914861,
+            "validation_accuracy_percent": 98.25021872265967,
+            "test_accuracy_percent": 98.16933638443935,
+            "test_macro_precision_percent": 98.04692552309199,
+            "test_macro_recall_percent": 98.08115468409586,
+            "test_macro_f1_percent": 98.06254434354584,
+            "test_weighted_f1_percent": 98.1719795355438
+        },
+        {
+            "backbone": "efficientnet_b3",
+            "best_epoch": 6,
+            "train_accuracy_percent": 99.08076165462903,
+            "validation_accuracy_percent": 98.4251968503937,
+            "test_accuracy_percent": 98.01678108314263,
+            "test_macro_precision_percent": 97.88921577603365,
+            "test_macro_recall_percent": 98.00090777051561,
+            "test_macro_f1_percent": 97.94008004493185,
+            "test_weighted_f1_percent": 98.0191180722441
+        }
+    ]
+}

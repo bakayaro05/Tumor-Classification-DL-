@@ -1,0 +1,85 @@
+{
+  "candidate_id": "phase2b_tuned__resnet50__dropout_0.2__best_val_within_30",
+  "stage": "phase2b_tuned",
+  "backbone": "resnet50",
+  "variant": "dropout_0.2",
+  "checkpoint_state": "best_val_within_30",
+  "selected_epoch": 28,
+  "internal_validation_accuracy": 0.9912510936132983,
+  "internal_validation_macro_f1": 0.9912239260383309,
+  "external_dataset_fingerprint": "b278720c42423c5cfe6090239fbd5ffb93bfaacb828c21578e8ee1ff59c06751",
+  "external_samples": 1648,
+  "checkpoint_epoch_loaded": 28,
+  "external": {
+    "accuracy": 0.8786407766990292,
+    "macro_precision": 0.8921235444485529,
+    "macro_recall": 0.8786407766990292,
+    "macro_f1": 0.8787275109653538,
+    "weighted_f1": 0.8787275109653537,
+    "confusion_matrix": [
+      [
+        349,
+        25,
+        30,
+        8
+      ],
+      [
+        6,
+        378,
+        20,
+        8
+      ],
+      [
+        3,
+        5,
+        404,
+        0
+      ],
+      [
+        1,
+        27,
+        67,
+        317
+      ]
+    ],
+    "classification_report": {
+      "glioma": {
+        "precision": 0.9721448467966574,
+        "recall": 0.8470873786407767,
+        "f1-score": 0.9053177691309987,
+        "support": 412.0
+      },
+      "meningioma": {
+        "precision": 0.8689655172413793,
+        "recall": 0.9174757281553398,
+        "f1-score": 0.8925619834710744,
+        "support": 412.0
+      },
+      "notumor": {
+        "precision": 0.7754318618042226,
+        "recall": 0.9805825242718447,
+        "f1-score": 0.8660235798499464,
+        "support": 412.0
+      },
+      "pituitary": {
+        "precision": 0.9519519519519519,
+        "recall": 0.7694174757281553,
+        "f1-score": 0.851006711409396,
+        "support": 412.0
+      },
+      "accuracy": 0.8786407766990292,
+      "macro avg": {
+        "precision": 0.8921235444485529,
+        "recall": 0.8786407766990292,
+        "f1-score": 0.8787275109653538,
+        "support": 1648.0
+      },
+      "weighted avg": {
+        "precision": 0.8921235444485529,
+        "recall": 0.8786407766990292,
+        "f1-score": 0.8787275109653537,
+        "support": 1648.0
+      }
+    }
+  }
+}

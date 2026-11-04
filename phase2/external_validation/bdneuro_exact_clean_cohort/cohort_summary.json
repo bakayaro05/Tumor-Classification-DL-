@@ -1,0 +1,39 @@
+{
+  "source_dataset": "BDNeuro-MRI Version 8",
+  "source_mri_total": 5941,
+  "cross_dataset_reference": "Original Nickparvar 7,023-image development dataset",
+  "exclusion_rule": "Exclude only BDNeuro images with an exact decoded-pixel match to at least one image in the original development dataset, as recorded by the completed overlap audit.",
+  "perceptual_hash_policy": "Non-identical pHash similarity candidates are retained. pHash similarity alone is not treated as proof of duplication.",
+  "unique_exact_pixel_images_excluded": 3297,
+  "exact_pixel_clean_images_kept": 2644,
+  "mapped_class_names": {
+    "glioma": "glioma",
+    "meningioma": "meningioma",
+    "no_tumor": "notumor",
+    "pituitary": "pituitary"
+  },
+  "kept_by_class": {
+    "glioma": 1159,
+    "meningioma": 472,
+    "notumor": 412,
+    "pituitary": 601
+  },
+  "kept_by_original_bdneuro_split": {
+    "test": 435,
+    "train": 1845,
+    "val": 364
+  },
+  "excluded_by_class": {
+    "glioma": 1032,
+    "meningioma": 1006,
+    "notumor": 375,
+    "pituitary": 884
+  },
+  "excluded_by_original_bdneuro_split": {
+    "test": 454,
+    "train": 2315,
+    "val": 528
+  },
+  "raw_dataset_preserved": true,
+  "derived_cohort_path": "external_data/BDNeuro_V8_exact_clean"
+}

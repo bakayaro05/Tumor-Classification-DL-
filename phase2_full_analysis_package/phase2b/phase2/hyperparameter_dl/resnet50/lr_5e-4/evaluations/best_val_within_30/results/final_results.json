@@ -1,0 +1,105 @@
+{
+    "phase": "phase2B_hyperparameter_full_hybrid",
+    "backbone": "resnet50",
+    "run_name": "lr_5e-4",
+    "checkpoint_type": "best",
+    "checkpoint_file": "best_val_within_30.pth",
+    "checkpoint_epoch": 25,
+    "hyperparameters": {
+        "learning_rate": 0.0005,
+        "lstm_hidden_size": 256,
+        "dense_features": 128,
+        "dropout": 0.3
+    },
+    "neural_checkpoint": {
+        "train_accuracy": 93.62959719789842,
+        "val_accuracy": 94.750656167979
+    },
+    "deep_features": {
+        "dimension": 128,
+        "train_samples": 4569,
+        "val_samples": 1143,
+        "extraction_time_seconds": 8.669140577316284
+    },
+    "pca": {
+        "components": 64,
+        "explained_variance": 0.9960476160049438
+    },
+    "svm": {
+        "kernel": "linear",
+        "C": 1.0,
+        "training_time_seconds": 0.10725545883178711
+    },
+    "validation": {
+        "accuracy": 0.9588801399825022,
+        "macro_precision": 0.9583763422781413,
+        "macro_recall": 0.9574020864885859,
+        "macro_f1": 0.957698989142205,
+        "weighted_f1": 0.9589418810923014,
+        "confusion_matrix": [
+            [
+                246,
+                15,
+                0,
+                3
+            ],
+            [
+                5,
+                251,
+                8,
+                4
+            ],
+            [
+                1,
+                6,
+                311,
+                1
+            ],
+            [
+                0,
+                4,
+                0,
+                288
+            ]
+        ],
+        "classification_report": {
+            "glioma": {
+                "precision": 0.9761904761904762,
+                "recall": 0.9318181818181818,
+                "f1-score": 0.9534883720930233,
+                "support": 264.0
+            },
+            "meningioma": {
+                "precision": 0.9094202898550725,
+                "recall": 0.9365671641791045,
+                "f1-score": 0.9227941176470589,
+                "support": 268.0
+            },
+            "notumor": {
+                "precision": 0.9749216300940439,
+                "recall": 0.9749216300940439,
+                "f1-score": 0.9749216300940439,
+                "support": 319.0
+            },
+            "pituitary": {
+                "precision": 0.972972972972973,
+                "recall": 0.9863013698630136,
+                "f1-score": 0.9795918367346939,
+                "support": 292.0
+            },
+            "accuracy": 0.9588801399825022,
+            "macro avg": {
+                "precision": 0.9583763422781413,
+                "recall": 0.9574020864885859,
+                "f1-score": 0.957698989142205,
+                "support": 1143.0
+            },
+            "weighted avg": {
+                "precision": 0.9593587327240185,
+                "recall": 0.9588801399825022,
+                "f1-score": 0.9589418810923014,
+                "support": 1143.0
+            }
+        }
+    }
+}

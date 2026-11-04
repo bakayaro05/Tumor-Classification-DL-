@@ -1,0 +1,17 @@
+{
+  "external_dir": "/home/ravic/brain_tumor_project/external_data/web_stress_40_raw",
+  "class_to_idx": {
+    "glioma": 0,
+    "meningioma": 1,
+    "notumor": 2,
+    "pituitary": 3
+  },
+  "class_counts": {
+    "glioma": 10,
+    "meningioma": 10,
+    "notumor": 10,
+    "pituitary": 10
+  },
+  "total_images": 40,
+  "dataset_fingerprint_path_size_label_sha256": "26da5c49d7a45c27ea4fbbf2a44957ffafba1cede0dd85c29a3510dc42f9591c"
+}

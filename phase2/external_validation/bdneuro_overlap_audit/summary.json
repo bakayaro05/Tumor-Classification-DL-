@@ -1,0 +1,20 @@
+{
+  "internal_images": 7023,
+  "bdneuro_images": 5941,
+  "near_threshold_phash_hamming": 6,
+  "strong_threshold_phash_hamming": 4,
+  "cross_dataset": {
+    "exact_file_duplicate_pairs": 3421,
+    "exact_pixel_duplicate_pairs": 3519,
+    "phash_candidates_le_threshold": 9981,
+    "phash_strong_candidates": 6664
+  },
+  "within_bdneuro": {
+    "exact_file_duplicate_pairs": 0,
+    "exact_pixel_duplicate_pairs": 0,
+    "phash_candidates_le_threshold": 1588,
+    "phash_strong_candidates": 65,
+    "cross_split_phash_candidates": 721
+  },
+  "important_note": "pHash matches are screening candidates, not automatic proof of duplicate identity. Review near-duplicate candidates before excluding images or making scientific claims."
+}

@@ -1,0 +1,66 @@
+{
+  "neural_head_test": [
+    {
+      "backbone": "vgg16",
+      "best_epoch": 16,
+      "test_accuracy_pct": 93.67,
+      "macro_f1_pct": 93.32
+    },
+    {
+      "backbone": "vgg19",
+      "best_epoch": 18,
+      "test_accuracy_pct": 93.14,
+      "macro_f1_pct": 92.72
+    },
+    {
+      "backbone": "resnet50",
+      "best_epoch": 7,
+      "test_accuracy_pct": 97.33,
+      "macro_f1_pct": 97.19
+    },
+    {
+      "backbone": "resnet152",
+      "best_epoch": 8,
+      "test_accuracy_pct": 98.17,
+      "macro_f1_pct": 98.06
+    },
+    {
+      "backbone": "efficientnet_b3",
+      "best_epoch": 6,
+      "test_accuracy_pct": 98.02,
+      "macro_f1_pct": 97.94
+    }
+  ],
+  "pca_svm_test": [
+    {
+      "backbone": "vgg16",
+      "svm_val_accuracy_pct": 94.93,
+      "test_accuracy_pct": 94.97,
+      "macro_f1_pct": 94.68
+    },
+    {
+      "backbone": "vgg19",
+      "svm_val_accuracy_pct": 94.49,
+      "test_accuracy_pct": 93.52,
+      "macro_f1_pct": 93.1
+    },
+    {
+      "backbone": "resnet50",
+      "svm_val_accuracy_pct": 97.55,
+      "test_accuracy_pct": 98.09,
+      "macro_f1_pct": 98.01
+    },
+    {
+      "backbone": "resnet152",
+      "svm_val_accuracy_pct": 98.25,
+      "test_accuracy_pct": 98.4,
+      "macro_f1_pct": 98.32
+    },
+    {
+      "backbone": "efficientnet_b3",
+      "svm_val_accuracy_pct": 98.51,
+      "test_accuracy_pct": 98.47,
+      "macro_f1_pct": 98.41
+    }
+  ]
+}

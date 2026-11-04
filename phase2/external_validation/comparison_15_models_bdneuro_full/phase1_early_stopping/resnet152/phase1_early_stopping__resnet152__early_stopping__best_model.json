@@ -1,0 +1,85 @@
+{
+  "candidate_id": "phase1_early_stopping__resnet152__early_stopping__best_model",
+  "stage": "phase1_early_stopping",
+  "backbone": "resnet152",
+  "variant": "early_stopping",
+  "checkpoint_state": "best_model",
+  "selected_epoch": 8,
+  "internal_validation_accuracy": 0.9825021872265967,
+  "internal_validation_macro_f1": 0.9820269201635893,
+  "external_dataset_fingerprint": "d5d7f6b23fae57a273f4c99817c72012058c65df5ec65d778c83c0e092df3e1f",
+  "external_samples": 2644,
+  "checkpoint_epoch_loaded": 8,
+  "external": {
+    "accuracy": 0.8127836611195158,
+    "macro_precision": 0.8108093898002978,
+    "macro_recall": 0.8518228772999685,
+    "macro_f1": 0.8084158636908739,
+    "weighted_f1": 0.8191089124263529,
+    "confusion_matrix": [
+      [
+        844,
+        141,
+        157,
+        17
+      ],
+      [
+        5,
+        440,
+        26,
+        1
+      ],
+      [
+        4,
+        4,
+        403,
+        1
+      ],
+      [
+        11,
+        26,
+        102,
+        462
+      ]
+    ],
+    "classification_report": {
+      "glioma": {
+        "precision": 0.9768518518518519,
+        "recall": 0.728213977566868,
+        "f1-score": 0.8344043499752842,
+        "support": 1159.0
+      },
+      "meningioma": {
+        "precision": 0.7201309328968903,
+        "recall": 0.9322033898305084,
+        "f1-score": 0.8125577100646353,
+        "support": 472.0
+      },
+      "notumor": {
+        "precision": 0.5857558139534884,
+        "recall": 0.9781553398058253,
+        "f1-score": 0.7327272727272728,
+        "support": 412.0
+      },
+      "pituitary": {
+        "precision": 0.9604989604989606,
+        "recall": 0.7687188019966722,
+        "f1-score": 0.8539741219963032,
+        "support": 601.0
+      },
+      "accuracy": 0.8127836611195158,
+      "macro avg": {
+        "precision": 0.8108093898002978,
+        "recall": 0.8518228772999685,
+        "f1-score": 0.8084158636908739,
+        "support": 2644.0
+      },
+      "weighted avg": {
+        "precision": 0.8663632251256964,
+        "recall": 0.8127836611195158,
+        "f1-score": 0.8191089124263529,
+        "support": 2644.0
+      }
+    }
+  }
+}

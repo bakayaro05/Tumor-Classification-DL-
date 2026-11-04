@@ -1,0 +1,17 @@
+{
+  "external_dir": "/home/ravic/brain_tumor_project/external_data/BDNeuro_V8_exact_clean_balanced",
+  "class_to_idx": {
+    "glioma": 0,
+    "meningioma": 1,
+    "notumor": 2,
+    "pituitary": 3
+  },
+  "class_counts": {
+    "glioma": 412,
+    "meningioma": 412,
+    "notumor": 412,
+    "pituitary": 412
+  },
+  "total_images": 1648,
+  "dataset_fingerprint_path_size_label_sha256": "b278720c42423c5cfe6090239fbd5ffb93bfaacb828c21578e8ee1ff59c06751"
+}
