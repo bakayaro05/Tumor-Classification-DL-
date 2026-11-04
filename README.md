@@ -11,6 +11,8 @@ The work began as an implementation of the hybrid **CNN + LSTM + SVM** framework
 
 **Read next:** [Detailed repository documentation](docs/REPOSITORY_DOCUMENTATION.md) · [GitHub edition of the full research report](docs/RESEARCH_REPORT_GITHUB_EDITION.pdf) · [Dataset and literature references](docs/DATASETS_AND_REFERENCES.md) · [Public repository audit and reproducibility notes](docs/PUBLICATION_NOTES.md).
 
+**Available model releases:** [`models-v1.0` — all 15 frozen inference pipelines](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) · [`research-checkpoints-v1.0` — 71 additional historical neural checkpoints](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/research-checkpoints-v1.0) · [Model download, restoration and 75-hash verification guide](docs/MODEL_WEIGHTS.md) · [Full reproduction guide](docs/REPRODUCE.md). These releases are **separate from Git-tracked files**.
+
 ## At a glance
 
 | Item | Final project record |
@@ -154,7 +156,7 @@ The following paths describe the **observed GitHub `main` tree**, not an idealiz
 
 ## Running the final application
 
-**Important checkout limitation (verified on the current GitHub tree): there are no tracked `.pth` CNN checkpoints**. Some downstream `.joblib`, JSON and CSV files are present, but they do **not** replace neural weights. The research-results tabs can be inspected from the committed summaries; **live MRI prediction and explanation require the correct checkpoint/scaler/PCA/SVM bundle for the selected pipeline**, restored from the original training machine or a separately published authorized artifact set. Do **not** mix files across phases or epochs.
+**A fresh Git checkout contains no tracked `.pth` neural weights, but the authentic saved bundles are now publicly available as separate GitHub Releases.** Download the **15 frozen five-part pipelines** from [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0); the optional [`research-checkpoints-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/research-checkpoints-v1.0) preserves 71 additional historical neural states. Follow [`docs/MODEL_WEIGHTS.md`](docs/MODEL_WEIGHTS.md) to restore each archive's project-relative paths and check all **75 frozen constituent hashes** against the published manifest. Results tabs can be read without these downloads, but **live prediction and explainability need the exact matching checkpoint/scaler/PCA/SVM**. Do **not** interchange phases or epochs. A fresh-clone restore/inference replay is not yet independently certified.
 
 ```bash
 # On a machine with Git and Python 3.12; Ubuntu / WSL2 matches the recorded setup.
@@ -169,8 +171,8 @@ python -m pip install --upgrade pip
 # For GPU setups, use the official PyTorch selector: https://pytorch.org/get-started/locally/
 python -m pip install -r requirements-gui.txt
 
-# Restore any missing selected-pipeline .pth / scaler / PCA / SVM artifacts
-# to the paths declared in app.py and gui/model_registry.py before inference.
+# BEFORE prediction: restore `models-v1.0` from the GitHub Release and
+# verify 75 constituent SHA-256 hashes per docs/MODEL_WEIGHTS.md.
 streamlit run app.py
 ```
 
@@ -180,7 +182,7 @@ The **seven current tabs**, in order, are **Predict MRI · Base-paper reproducti
 
 ### Reproducing the research without retraining
 
-A reader can inspect the **committed JSON/CSV evidence directly**, including all five Phase 1 experiments, Phase 2A and 2B training histories, freeze manifest, both BDNeuro cohorts, Web-40 results and formal XAI ratings. Reproducing trained weights or every reported hash from scratch is **not possible from the public checkout alone** because `.pth` checkpoints are absent. Original machine environment and preprocessing choices are documented in [`final_project_docs/environment_pip_freeze.txt`](final_project_docs/environment_pip_freeze.txt) and the [technical documentation](docs/REPOSITORY_DOCUMENTATION.md). Checkpoint loading should use only trusted model artifacts; untrusted PyTorch/joblib files can execute code during deserialization.
+A reader can inspect the **committed JSON/CSV evidence directly**, including all five Phase 1 experiments, Phase 2A and 2B training histories, freeze manifest, both BDNeuro cohorts, Web-40 results and formal XAI ratings. The repository's Git tree intentionally omits `.pth` files; the original selected model artifacts can now be downloaded from [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) and compared to the frozen manifest using the [release restoration guide](docs/MODEL_WEIGHTS.md). Access to the archives is not equivalent to a verified clean-clone performance reproduction. Original machine environment and preprocessing choices are documented in [`final_project_docs/environment_pip_freeze.txt`](final_project_docs/environment_pip_freeze.txt) and the [technical documentation](docs/REPOSITORY_DOCUMENTATION.md). Checkpoint loading should use only trusted model artifacts; untrusted PyTorch/joblib files can execute code during deserialization.
 
 ## Datasets, attribution and publication considerations
 
@@ -209,4 +211,4 @@ For a quick tour, start with **this README**. For precise directory layouts, scr
 
 **Base paper:** M. Bérété, A. Echtioui, L. Sellami and A. A. Ben Hmida, “Hybrid CNN + LSTM + SVM model for advanced brain tumor classification,” *Network Modeling Analysis in Health Informatics and Bioinformatics*, vol. 15, article 43 (2026). https://doi.org/10.1007/s13721-025-00718-8. Its reported scores and experiment settings are a **reference**, not figures measured by this project. The complete bibliography remains in the research report; dataset and direct-result citations are linked throughout this README.
 
-**Status:** The research phases and final dashboard are complete as documented. This public repository is a **research evidence and code archive**; **live inference from a fresh clone is not complete until the untracked neural checkpoints are supplied**. Any future retraining/tuning motivated by the published external results requires **new untouched evaluation data**.
+**Status:** The research phases and final dashboard are complete as documented. This public repository is a **research evidence and code archive**; Git-tracked source alone does not provide `.pth` weights, but **15 frozen inference bundles are now downloadable from GitHub Releases** and must be restored and verified before inference. Any future retraining/tuning motivated by the published external results requires **new untouched evaluation data**.

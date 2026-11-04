@@ -7,6 +7,7 @@
 **Base paper:** Bérété et al. (2026), *Hybrid CNN + LSTM + SVM model for advanced brain tumor classification*, [DOI: 10.1007/s13721-025-00718-8](https://doi.org/10.1007/s13721-025-00718-8).  
 **Data:** [Nickparvar Brain Tumor MRI Dataset (Kaggle)](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset); [BDNeuro-MRI Version 8 (Mendeley Data)](https://doi.org/10.17632/zwr4ntf94j.8).  
 **Expanded methods/results:** [Technical documentation](REPOSITORY_DOCUMENTATION.md) · [Research report](RESEARCH_REPORT_GITHUB_EDITION.pdf) · [Dataset citations and provenance](DATASETS_AND_REFERENCES.md).
+**Frozen model downloads:** [15 selected pipelines (`models-v1.0`)](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) · [71 additional checkpoints (`research-checkpoints-v1.0`)](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/research-checkpoints-v1.0) · [verified restoration procedure](MODEL_WEIGHTS.md).
 
 ## Contents
 
@@ -33,9 +34,9 @@ There are **three different tasks**. Do not confuse them:
 |---|---|---|
 | **Audit the documented results** | Yes: tracked JSON/CSV, split indices, evaluation protocols, selected-pipeline records, and written report | Inspect the referenced machine-readable evidence; no GPU training required |
 | **Train a new implementation of the five-backbone pipeline** | Source scripts are present | The matching 7,023-image development dataset, Python environment, computation, and fresh training; new numerical results may differ |
-| **Replay the exact original frozen models' predictions and hashes** | **No**: the public tree has **no tracked `.pth` neural checkpoints** | The *authentic* saved checkpoint for each selected pipeline, together with its matched scaler, PCA, SVM, and results; the originally used image files and ordering |
+| **Replay the original 15 frozen models** | **Not from Git tree alone**: the `.pth` weights are provided separately in [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) | Download/restore all three phase archives, verify all 75 hashes against the frozen manifest, install the compatible environment, and use the originally selected images and file ordering; [instructions](MODEL_WEIGHTS.md) |
 
-The project **does** contain 15 recorded frozen pipeline selections (five CNN backbones × Phase 1/2A/2B), 35 Phase 2B training histories, 70 downstream validation evaluations, the external-evaluation tables, and 75 artifact hashes in the [freeze manifest](../phase2/external_validation/frozen_15_manifest.json). The historical local QC reported 75/75 hashes matching, **but not all hashes can be recomputed from a GitHub checkout lacking the checkpoints**.
+The project **does** contain 15 recorded frozen pipeline selections (five CNN backbones × Phase 1/2A/2B), 35 Phase 2B training histories, 70 downstream validation evaluations, the external-evaluation tables, and 75 artifact hashes in the [freeze manifest](../phase2/external_validation/frozen_15_manifest.json). The historical local QC reported 75/75 hashes matching. The original 15 bundles are now downloadable from a public GitHub Release, so those hashes **can be independently rechecked after restoration**; such clean-clone verification is still pending, not asserted here.
 
 **Run potentially writing scripts in a disposable clone**, not inside the copy containing the published experimental artifacts. Training and evaluation scripts reuse the canonical output folders and may overwrite or skip data. Do not erase the published [frozen manifest](../phase2/external_validation/frozen_15_manifest.json), results, or reports to make a rerun pass.
 
@@ -541,7 +542,7 @@ streamlit run app.py
 
 The [final `app.py`](../app.py) presents **Predict MRI**, **Base-paper reproduction**, **Model card**, **Hyperparameter sensitivity**, **External evaluation**, **XAI study**, and **Frozen 15 comparison**. It supports PNG/JPG/JPEG/BMP/TIFF uploads, not DICOM. Stage/backbone selection identifies one of the **15 frozen configurations**. The selected pipeline must have its own authentic `.pth` checkpoint, SVM, scaler and PCA in the paths mapped by [`app.py`](../app.py) and [`gui/model_registry.py`](../gui/model_registry.py).
 
-The public checkout has **zero `.pth` checkpoints**, so **live prediction and live XAI cannot be expected to work from the public clone alone**. Some report/metric tabs can still read committed JSON/CSV. The current dashboard itself reports missing pipeline artifacts; a reader should not borrow a Phase 1 checkpoint to make a Phase 2A pipeline appear ready. The existing [`verify_gui_setup.py`](../verify_gui_setup.py) and [`README_GUI.md`](../README_GUI.md) are **Phase 1/four-tab legacy guides**, not comprehensive preflights for this seven-tab application.
+The Git tree has **zero tracked `.pth` checkpoints**, but the authentic 15-pipeline model archive is now available as [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0). **Restore and hash-verify it first**; live prediction and XAI still cannot run from the unmodified checkout alone. Some report/metric tabs can still read committed JSON/CSV. The current dashboard itself reports missing pipeline artifacts; a reader should not borrow a Phase 1 checkpoint to make a Phase 2A pipeline appear ready. The existing [`verify_gui_setup.py`](../verify_gui_setup.py) and [`README_GUI.md`](../README_GUI.md) are **Phase 1/four-tab legacy guides**, not comprehensive preflights for this seven-tab application.
 
 ## 12. Evidence, expected results, and interpretation
 
@@ -571,7 +572,7 @@ The project-level representative **ResNet152 Phase 2A epoch 10** was selected **
 |---|---|
 | `FileNotFoundError: data/brain_tumor_mri/Training` | The **original Nickparvar development images** were not downloaded/extracted to the expected path. The BDNeuro data already in the repo are not a replacement. |
 | Correct counts, unexpected results | Check original dataset version, filenames, **ImageFolder sorted order**, preprocessing, package versions, random initialization and exact checkpoint state. Counts alone do not prove split identity. |
-| Missing `best_model.pth` / `best_val_within_30.pth` | The public repository excludes **all neural `.pth` checkpoints**. Train new models or restore authentic saved weights; never substitute a different backbone/phase/epoch. |
+| Missing `best_model.pth` / `best_val_within_30.pth` | The Git tree excludes neural `.pth` weights. Restore the frozen states from the matching [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0) TAR files, then verify frozen SHA-256 hashes per [MODEL_WEIGHTS](MODEL_WEIGHTS.md). Never substitute a different backbone/phase/epoch. |
 | Training CUDA out-of-memory | Use the baseline batch 8; avoid competing GPU processes. Changes to batch size alter the experiment and should be reported. |
 | VGG validation collapses to majority-class behavior | Confirm the implemented **frozen VGG convolutional backbone** policy. Fully fine-tuned VGG16 originally collapsed (~28% validation) and produced near-constant features/PCA failures. |
 | `BatchNorm1d` error for batch of one | Phase 1 training set has 4,569 samples; with batch 8, the final remainder is one. The trainer uses `drop_last=True` for the training loader. Do not remove this safeguard without redesigning BatchNorm. |
@@ -605,4 +606,4 @@ After a **new reproduction run**, verify the following independently and retain 
 
 ---
 
-**Bottom line:** The repository is an extensive, inspectable **source-and-evidence archive** and an executable *training workflow when its source datasets and compatible environment are supplied*. A public Git clone does **not** contain the neural checkpoint files necessary to replay the original 15 frozen models. This guide deliberately separates *inspection*, *fresh retraining*, and *faithful frozen-artifact replay* so readers understand exactly what they can reproduce.
+**Bottom line:** The repository is an extensive, inspectable **source-and-evidence archive** and an executable *training workflow when its source datasets and compatible environment are supplied*. A public Git clone does **not** contain neural checkpoint bytes, but the **15 original frozen inference bundles are available via `models-v1.0`** for independent restoration and hash verification; the 71 extra research checkpoints are a separate optional archive. This guide deliberately separates *inspection*, *fresh retraining*, and *faithful frozen-artifact replay* so readers understand exactly what they can reproduce.

@@ -1,0 +1,16 @@
+# Historical non-PyTorch package pins from the recorded final project environment.
+# Python: 3.12.14 in the original environment.
+# Install a mutually compatible torch + torchvision build separately first:
+#   https://pytorch.org/get-started/locally/
+# Original PyTorch pair: torch 2.11.0+cu128 / torchvision 0.26.0+cu128.
+# Different machines may need different supported CPU/CUDA wheels.
+# Not a guarantee of byte-identical retraining or a complete OS/CUDA lockfile.
+numpy==2.5.2
+pandas==2.3.3
+scipy==1.18.1
+scikit-learn==1.9.0
+joblib==1.5.3
+Pillow==12.3.0
+matplotlib==3.11.1
+streamlit==1.63.0
+altair==5.5.0

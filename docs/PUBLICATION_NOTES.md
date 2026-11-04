@@ -73,3 +73,12 @@ git push origin main
 5. **Scholarly attribution:** cite [Nickparvar/Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset), [BDNeuro Mendeley Version 8](https://data.mendeley.com/datasets/zwr4ntf94j/8), [base paper](https://doi.org/10.1007/s13721-025-00718-8) and each applicable Web-40 source page; see `DATASETS_AND_REFERENCES.md`.
 
 **Mini-project scope:** A completed research and educational system, not a medical device, not patient-diagnostic software, and not clinically validated.
+
+## Post-publication status update — 5 November 2026
+
+**This update supersedes the pre-publication availability claims elsewhere in this dated audit; the audit's original 4 November observations are retained below as historical provenance.** The public `main` branch now contains the README, technical documentation, reproduction guide, dataset references and report edition. Two separately hosted public releases have been verified to exist:
+
+- [`models-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/models-v1.0): 15 selected frozen five-artifact pipelines in three phase TAR files. Frozen manifest: [`phase2/external_validation/frozen_15_manifest.json`](../phase2/external_validation/frozen_15_manifest.json).
+- [`research-checkpoints-v1.0`](https://github.com/bakayaro05/Tumor-Classification-DL-/releases/tag/research-checkpoints-v1.0): 71 additional neural checkpoints in 12 TAR files, with a separate inventory manifest and downloadable `SHA256SUMS`.
+
+The normal Git tree still intentionally excludes `.pth` weights. See [Model weights and verification](MODEL_WEIGHTS.md). **No clean-clone download/extract/75-hash/inference test is claimed completed by this status update.** `models-v1.0` currently lacks an attached `SHA256SUMS` asset, but its TAR SHA-256 values are published in GitHub asset metadata and are transcribed in [MODEL_WEIGHTS.md](MODEL_WEIGHTS.md). After extraction, its 75 constituent file hashes can be checked separately. The original public-data/image redistribution review remains applicable.
